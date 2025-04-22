@@ -1,0 +1,100 @@
+/*电子钟字体*/
+@font-face {
+    font-family: 'LEDFont';
+    src: url("https://fonts.gstatic.com/s/orbitron/v25/yMJRMIlzdpvBhQQL_Qq7dys.woff2");
+    font-display: swap;
+  }
+  div#runtime {
+    width: 280px;
+    margin: auto;
+    color: rgb(73, 74, 71);
+    padding: 12px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #feffff 0%, #eef1f4 100%);
+    font-family: 'LEDFont';
+    text-shadow: 0 0 8px rgb(68, 69, 64);
+    box-shadow: 0 0 15px rgba(64, 65, 63, 0.3);
+    border: 1px solid rgba(49, 49, 47, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  div#runtime::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0,255,255,0) 0%,
+        rgba(0,255,255,0.3) 50%,
+        rgba(0,255,255,0) 100%
+    );
+    animation: scan 3s linear infinite;
+ }
+
+  [data-theme="dark"] div#runtime {
+    color: #0f0;
+    text-shadow: 0 0 12px #0f0;
+    box-shadow: 0 0 25px rgba(0,255,0,0.4);
+    background: linear-gradient(145deg, #001f00 0%, #000f00 100%);
+  }
+  
+  @keyframes scan {
+    0% { left: -100%; }
+    100% { left: 200%; }
+ }
+
+  /*悬停显示徽标提示语*/
+  a.github-badge:hover:before {
+    position: fixed;
+    width: fit-content;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 100;
+    content: attr(data-title);
+    font-size: 20px;
+    color: #fff;
+    padding: 10px;
+    background-color: var(--text-bg-hover);
+  }
+  [data-theme=dark] a.github-badge:hover:before {
+    background-color: rgba(18,18,18,0.8);
+  }
+  @-moz-keyframes flashlight {
+    from {
+      box-shadow: 0 0 5px #1478d2;
+    }
+    to {
+      box-shadow: 0 0 2px #1478d2;
+    }
+  }
+  @-webkit-keyframes flashlight {
+    from {
+      box-shadow: 0 0 5px #1478d2;
+    }
+    to {
+      box-shadow: 0 0 2px #1478d2;
+    }
+  }
+  @-o-keyframes flashlight {
+    from {
+      box-shadow: 0 0 5px #1478d2;
+    }
+    to {
+      box-shadow: 0 0 2px #1478d2;
+    }
+  }
+  @keyframes flashlight {
+    from {
+      box-shadow: 0 0 5px #1478d2;
+    }
+    to {
+      box-shadow: 0 0 2px #1478d2;
+    }
+  }
